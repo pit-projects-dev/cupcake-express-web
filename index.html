@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cupcake Express</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>CUPCAKE EXPRESS</h1>
+        <p>Comida feita com ingredientes à base de muito amor</p>
+    </header>
+
+    <main class="container">
+        <!-- Secção do Cardápio -->
+        <section class="cardapio">
+            <h2>Nossos Cupcakes</h2>
+            <div class="produtos-grid">
+                <div class="produto-card">
+                    <h3>Cupcake Personalizado</h3>
+                    <p class="preco">R$ 14,90</p>
+                    <button onclick="adicionarCarrinho('Cupcake Personalizado', 14.90)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="produto-card">
+                    <h3>Cupcake Junino (30g a 60g)</h3>
+                    <p class="preco">R$ 5,50</p>
+                    <button onclick="adicionarCarrinho('Cupcake Junino', 5.50)">Adicionar ao Carrinho</button>
+                </div>
+                <div class="produto-card">
+                    <h3>Mini Bolo Recheado</h3>
+                    <p class="preco">R$ 6,00</p>
+                    <button onclick="adicionarCarrinho('Mini Bolo Recheado', 6.00)">Adicionar ao Carrinho</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Secção do Carrinho e Pagamento -->
+        <section class="carrinho-secao">
+            <h2>Seu Carrinho</h2>
+            <ul id="lista-carrinho">
+                <li class="vazio">O carrinho está vazio.</li>
+            </ul>
+            <p class="total">Total: R$ <span id="valor-total">0,00</span></p>
+
+            <div class="checkout">
+                <input type="text" id="cupom" placeholder="Digite o código de cupom">
+                <select id="pagamento">
+                    <option value="pix">Pix</option>
+                    <option value="cartao">Cartão de Crédito</option>
+                </select>
+                <button class="btn-finalizar" onclick="finalizarPedido()">Confirmar Pedido</button>
+            </div>
+        </section>
+
+        <!-- Painel Administrativo / Acompanhamento -->
+        <section class="painel-adm">
+            <h2>Painel Administrativo & Acompanhamento</h2>
+            <div class="status-pedido">
+                <p>Status do Pedido Atual: <span id="status-atual">Aguardando Pedido</span></p>
+            </div>
+            <div class="botoes-adm">
+                <button onclick="mudarStatus('Em preparo')">Em Preparo</button>
+                <button onclick="mudarStatus('Saiu para entrega')">Saiu para Entrega</button>
+                <button onclick="mudarStatus('Entregue')">Entregue</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
